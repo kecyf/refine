@@ -1,9 +1,17 @@
-# refine
+# skills
 
-Two agent skills for [Cursor](https://cursor.com) that use your most capable model where intelligence compounds, and cheap subagents everywhere else.
+A curated collection of agent skills for [Cursor](https://cursor.com) (and any agent supporting the [Agent Skills](https://agentskills.io) format).
 
-- **`/refine`** — plan a complex task: delegate context-gathering to cheap subagents, do the heavy reasoning yourself, produce a plan a cheaper model can execute.
-- **`/review`** — verify the session's output once the work is done: delegate the reviewing to parallel subagents, synthesize one prioritized verdict. Generalist — code, docs, content, config, any deliverable.
+The common thread: use your most capable model where intelligence compounds — framing, judging, specifying, synthesizing — and delegate exploration and execution to cheap subagents.
+
+## Skills
+
+| Skill | What it does |
+|---|---|
+| [`/refine`](skills/refine/SKILL.md) | Plan a complex task: delegate context-gathering to cheap subagents, do the heavy reasoning yourself, produce a plan a cheaper model can execute. |
+| [`/review`](skills/review/SKILL.md) | Verify a session's output: detect the blast radius, fan out parallel review subagents, synthesize one prioritized go / no-go verdict. Generalist — code, docs, content, config, any deliverable. |
+
+The two compose into a full loop:
 
 ```
 you (frontier model)   →  /refine                    (advise + plan)
@@ -12,15 +20,13 @@ executor (cheap model) →  implements, verifies       (execute)
 you (frontier model)   →  /review                    (verify + verdict)
 ```
 
-Inspired by [shadcn/improve](https://github.com/shadcn/improve), but scoped to **one task you already know you want done** — not a full-repo audit. Plans land in Cursor plan mode, not a `plans/` folder, and `/review` closes the loop on the session itself.
-
 ## Install
 
 ```bash
-npx skills add kecyf/refine
+npx skills add kecyf/skills
 ```
 
-Works in any agent that supports [Agent Skills](https://agentskills.io) format.
+Installs the skills in this repo; pick the ones you want when prompted.
 
 ## Usage
 
@@ -48,6 +54,8 @@ Works in any agent that supports [Agent Skills](https://agentskills.io) format.
 **Plan.** Produce atomic tasks with inlined context, verification gates (command + expected output), hard boundaries, STOP conditions, and a git drift stamp.
 
 **Hand off.** Quality bar check, then execute.
+
+Inspired by [shadcn/improve](https://github.com/shadcn/improve), but scoped to **one task you already know you want done** — not a full-repo audit. Plans land in Cursor plan mode, not a `plans/` folder.
 
 ## How `/review` works
 
