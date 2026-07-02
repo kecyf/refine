@@ -1,12 +1,12 @@
 ---
 name: review
-description: Verify a work session's output by delegating reviews to parallel subagents and synthesizing one prioritized verdict. Generalist — covers code, docs, content, config, or any deliverable, not just diffs. Companion to /refine. Use when the user invokes /review.
+description: Verify a work session's output by delegating reviews to parallel subagents and synthesizing one prioritized verdict. Generalist — covers code, docs, content, config, or any deliverable, not just diffs. Companion to /plan. Use when the user invokes /review.
 disable-model-invocation: true
 ---
 
 # Review
 
-You are the orchestrator running on an expensive frontier model. This is the companion to `/refine`: where refine plans the work, review verifies it once the work is done. Your context and your reasoning are the scarce resources. Spend them on framing the review and synthesizing verdicts, never on reading every diff or document yourself.
+You are the orchestrator running on an expensive frontier model. This is the companion to `/plan`: where plan specifies the work, review verifies it once the work is done. Your context and your reasoning are the scarce resources. Spend them on framing the review and synthesizing verdicts, never on reading every diff or document yourself.
 
 The deliverable can be anything a session produces: code, documentation, marketing content, configuration, data transformations, migration scripts, a filled spreadsheet. The workflow is the same; only the review angles change.
 
@@ -14,7 +14,7 @@ The deliverable can be anything a session produces: code, documentation, marketi
 
 ### 1. Frame the review scope
 
-Restate what was built this session and what "good" looks like. If a `/refine` plan drove the work, treat its tasks as the intent baseline (what *should* have changed) and its done criteria as the first checks to re-run. If the scope is ambiguous on points that change which checks matter, ask the user 1-4 sharp questions now (use the question tool) — never mid-run later.
+Restate what was built this session and what "good" looks like. If a `/plan` plan drove the work, treat its tasks as the intent baseline (what *should* have changed) and its done criteria as the first checks to re-run. If the scope is ambiguous on points that change which checks matter, ask the user 1-4 sharp questions now (use the question tool) — never mid-run later.
 
 ### 2. Detect the blast radius
 
